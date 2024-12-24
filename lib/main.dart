@@ -54,7 +54,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
 
-
 class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -86,27 +85,38 @@ class SearchField extends StatelessWidget {
 class FilterChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        FilterChip(
-          label: Text('Trending Now'),
-          backgroundColor: Colors.red,
-          onSelected: (bool value) {},
-        ),
-        SizedBox(width: 8),
-        FilterChip(
-          label: Text('All'),
-          onSelected: (bool value) {},
-        ),
-        SizedBox(width: 8),
-        FilterChip(
-          label: Text('New'),
-          onSelected: (bool value) {},
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0), // Optional padding
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, // Spreads chips across the row
+        children: [
+          FilterChip(
+            label: Text('Trending Now'),
+            onSelected: (bool value) {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16), // More rounded edges
+            ),
+          ),
+          FilterChip(
+            label: Text('All'),
+            onSelected: (bool value) {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16), // More rounded edges
+            ),
+          ),
+          FilterChip(
+            label: Text('New'),
+            onSelected: (bool value) {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16), // More rounded edges
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
 
 class ProductGrid extends StatelessWidget {
   @override
@@ -125,21 +135,21 @@ class ProductGrid extends StatelessWidget {
 class FashionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center( 
+    return Center(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, 
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: Center(
               child: AspectRatio(
-                aspectRatio: 3 / 4, 
+                aspectRatio: 3 / 4,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                 
                   ),
                   child: Center(
-                    child: Icon(Icons.shopping_bag, color: Colors.blueGrey, size: 50),
+                    child: Icon(Icons.shopping_bag,
+                        color: Colors.blueGrey, size: 50),
                   ),
                 ),
               ),

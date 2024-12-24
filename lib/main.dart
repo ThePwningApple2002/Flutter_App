@@ -17,7 +17,7 @@ class FashionPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TitleSection(),
-            SizedBox(height: 16),
+            SizedBox(height: 10),
             SearchField(),
             SizedBox(height: 16),
             FilterChips(),
@@ -115,7 +115,7 @@ class ProductGrid extends StatelessWidget {
       crossAxisCount: 2,
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
-      children: List.generate(4, (index) {
+      children: List.generate(10, (index) {
         return FashionItem();
       }),
     );
@@ -125,30 +125,32 @@ class ProductGrid extends StatelessWidget {
 class FashionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(8),
-      ),
+    return Center( 
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center, 
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Center(
-                child: Icon(Icons.shopping_bag, color: Colors.white, size: 50),
+            child: Center(
+              child: AspectRatio(
+                aspectRatio: 3 / 4, 
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                 
+                  ),
+                  child: Center(
+                    child: Icon(Icons.shopping_bag, color: Colors.blueGrey, size: 50),
+                  ),
+                ),
               ),
             ),
           ),
-          SizedBox(height: 8),
-          Text('Product Name',
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          Text('\$money, money'),
+          SizedBox(height: 16),
+          Text(
+            'Product Name',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text('\$XX.XX'),
         ],
       ),
     );

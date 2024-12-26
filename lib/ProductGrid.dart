@@ -9,9 +9,9 @@ class ProductGrid extends StatelessWidget {
       'imageUrl': 'https://imgs.search.brave.com/td0AYySkGujncuZ-pCPRQ4cI35BHZqGX83iTCAhhkcU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzk2Lzc0Lzgy/LzM2MF9GXzk2NzQ4/MjM0X0wxT3BRbEU4/TFFKbW1qR3BlUVp2/Y09WT2toeENQekNh/LmpwZw',
     },
     {
-      'name': 'Fashion Item 2',
+      'name': 'drugo aljince',
       'price': 59.99,
-      'imageUrl': 'https://via.placeholder.com/150',
+      'imageUrl': 'https://britishretro.co.uk/wp-content/uploads/2020/03/002-dee-dee-navy-drape-50s-ful-circle-dress.jpg',
     },
     // Add more fashion items as needed
   ];

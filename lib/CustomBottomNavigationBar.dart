@@ -6,16 +6,20 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '',
+          icon: ImageIcon(AssetImage('assets/home.png')),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: '',
+          icon: ImageIcon(AssetImage('assets/reorder.png')),
+          label: 'Reorder',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),
-          label: '',
+          icon: ImageIcon(AssetImage('assets/shopping_cart.png')),
+          label: 'Cart',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage('assets/profile.png')),
+          label: 'Profile',
         ),
       ],
     );

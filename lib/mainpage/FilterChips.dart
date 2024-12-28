@@ -5,7 +5,7 @@ class FilterChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double horizontalPadding = screenWidth * 0.065; 
+    double horizontalPadding = screenWidth * 0.071; 
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),

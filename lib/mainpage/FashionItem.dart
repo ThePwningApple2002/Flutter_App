@@ -14,37 +14,62 @@ class FashionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0), // Add horizontal padding 
+    return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Center(
-              child: AspectRatio(
-                aspectRatio: 3 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
                   ),
-                  child: Center(
-                    child: Image.network(imageUrl), // Display image
+                  Positioned(
+                    top: 10,
+                    right: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.favorite_outline,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 8),
           Text(
             name,
-            style: GoogleFonts.poppins(fontSize: 20),
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           Text(
             '\$${price.toStringAsFixed(2)}',
             style: GoogleFonts.poppins(
-              fontSize: 20,
-              color : const Color.fromARGB(255, 132, 132, 132)
-              ),
+              fontSize: 16,
+              color: const Color.fromARGB(255, 132, 132, 132),
+            ),
           ),
         ],
       ),

@@ -7,8 +7,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: const Color.fromARGB(255, 218, 87, 61),  // Color for the selected item
-          unselectedItemColor: Colors.grey,  // Color for the unselected items
+          selectedItemColor: const Color.fromARGB(255, 218, 87, 61), 
+          unselectedItemColor: Colors.grey, 
         ),
       ),
       child: BottomNavigationBar(

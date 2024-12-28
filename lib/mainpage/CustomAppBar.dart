@@ -7,15 +7,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       leading: Padding(
         padding: const EdgeInsets.only(left: 20.0),
-        child: SizedBox(  // Wrap IconButton with SizedBox
-          width: 100,     // Set desired width
-          height: 100,    // Set desired height
+        child: SizedBox( 
+          width: 100,    
+          height: 100,   
           child: IconButton(
-            padding: EdgeInsets.zero,  // Remove default padding
+            padding: EdgeInsets.zero,  
             icon: ImageIcon(
               AssetImage("assets/apps.png"),
               color: const Color.fromARGB(255, 218, 87, 61),
-              size: 40,  // Set the size of the icon itself
+              size: 40,  
             ),
             onPressed: () {},
           ),

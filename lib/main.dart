@@ -25,7 +25,7 @@ class FashionPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,7 +35,9 @@ class FashionPage extends StatelessWidget {
             SizedBox(height: 16),
             FilterChips(),
             SizedBox(height: 16),
-            Expanded(child: ProductGrid()),
+            Expanded(
+              child: ProductGrid(),
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FashionItem extends StatelessWidget {
   final String name;
@@ -13,11 +14,12 @@ class FashionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0), // Add horizontal padding 
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(   
+          Expanded(
             child: Center(
               child: AspectRatio(
                 aspectRatio: 3 / 4,
@@ -26,7 +28,7 @@ class FashionItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
-                    child: Image.network(imageUrl), // Prikaz slike
+                    child: Image.network(imageUrl), // Display image
                   ),
                 ),
               ),
@@ -35,9 +37,15 @@ class FashionItem extends StatelessWidget {
           SizedBox(height: 16),
           Text(
             name,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(fontSize: 20),
           ),
-          Text('\$${price.toStringAsFixed(2)}'),
+          Text(
+            '\$${price.toStringAsFixed(2)}',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              color : const Color.fromARGB(255, 132, 132, 132)
+              ),
+          ),
         ],
       ),
     );

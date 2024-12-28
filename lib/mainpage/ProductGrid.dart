@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aplikacijica/FashionItem.dart';
+import 'package:aplikacijica/mainpage/FashionItem.dart';
 
 class ProductGrid extends StatelessWidget {
   final List<Map<String, dynamic>> products = [

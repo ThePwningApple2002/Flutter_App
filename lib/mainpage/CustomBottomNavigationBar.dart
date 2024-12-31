@@ -5,9 +5,9 @@ import 'package:aplikacijica/reorderpage/models.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   @override
-  _CustomBottomNavigationBarState createState() =>
-      _CustomBottomNavigationBarState();
+  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
 }
+
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
@@ -15,33 +15,50 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-
-      switch (index) {
+      
+      switch(index) {
         case 0:
-          //Home Page
           break;
         case 1:
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ReorderPage()),
-          );
+          ).then((value) {
+            if (value == true) {
+              setState(() {
+                _selectedIndex = 0;
+              });
+            }
+          });
           break;
         case 2:
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => CartPage()),
-          );
+          ).then((value) {
+            if (value == true) {
+              setState(() {
+                _selectedIndex = 0;
+              });
+            }
+          });
           break;
         case 3:
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ProfilePage()),
-          );
+          ).then((value) {
+            if (value == true) {
+              setState(() {
+                _selectedIndex = 0;
+              });
+            }
+          });
           break;
       }
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Theme(

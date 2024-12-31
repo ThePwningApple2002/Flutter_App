@@ -1,5 +1,9 @@
 import 'package:aplikacijica/mainpage/models.dart';
+import 'package:aplikacijica/mycartpage/models.dart';
+import 'package:aplikacijica/profilepage/models.dart';
+import 'package:aplikacijica/reorderpage/models.dart';
 import 'package:flutter/material.dart';
+
 
 
 void main() {
@@ -13,47 +17,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fashion App',
-     
-      home: FashionPage(),
+      home: MainScreen(), // Change this to MainScreen
     );
   }
 }
 
-class FashionPage extends StatelessWidget {
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TitleSection(),
-            SizedBox(height: 10),
-            SearchField(),
-            SizedBox(height: 16),
-            FilterChips(),
-            SizedBox(height: 16),
-            Expanded(
-              child: ProductGrid(),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
-    );
+    return HomePage();
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 

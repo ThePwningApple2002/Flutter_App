@@ -4,3 +4,4 @@ export './SearchField.dart';
 export './CustomAppBar.dart';
 export './Title.dart';
 export './CustomBottomNavigationBar.dart';
+export './HomePage.dart';

@@ -6,8 +6,8 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(8),
+        color: const Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.circular(9),
       ),
       child: TextField(
         decoration: InputDecoration(
@@ -22,8 +22,8 @@ class SearchField extends StatelessWidget {
           ),
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(
-            vertical: 12,
-            horizontal: 8,
+            vertical: 10,
+            horizontal: 6,
           ),
         ),
       ),

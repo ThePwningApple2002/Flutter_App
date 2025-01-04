@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FashionItem extends StatelessWidget {
+class FashionItem extends StatefulWidget {
   final String name;
   final double price;
   final String imageUrl;
@@ -11,6 +11,13 @@ class FashionItem extends StatelessWidget {
     required this.price,
     required this.imageUrl,
   });
+
+  @override
+  _FashionItemState createState() => _FashionItemState();
+}
+
+class _FashionItemState extends State<FashionItem> {
+  bool isFavorite = false; // State variable to track if the heart is filled
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class FashionItem extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(
-                      imageUrl,
+                      widget.imageUrl,
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: double.infinity,
@@ -39,16 +46,23 @@ class FashionItem extends StatelessWidget {
                     top: 10,
                     right: 10,
                     child: Container(
+                      width: 35.0,
+                      height: 35.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
                       child: IconButton(
                         icon: Icon(
-                          Icons.favorite_outline,
-                          color: Colors.black,
+                          isFavorite ? Icons.favorite : Icons.favorite_outline,
+                          color: const Color.fromARGB(255, 226, 66, 66),
                         ),
-                        onPressed: () {},
+                        iconSize: 20.0,
+                        onPressed: () {
+                          setState(() {
+                            isFavorite = !isFavorite;
+                          });
+                        },
                       ),
                     ),
                   ),
@@ -58,14 +72,14 @@ class FashionItem extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            name,
+            widget.name,
             style: GoogleFonts.poppins(
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
           Text(
-            '\$${price.toStringAsFixed(2)}',
+            '\$${widget.price.toStringAsFixed(2)}',
             style: GoogleFonts.poppins(
               fontSize: 16,
               color: const Color.fromARGB(255, 132, 132, 132),

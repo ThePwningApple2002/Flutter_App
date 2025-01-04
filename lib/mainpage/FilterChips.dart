@@ -5,7 +5,7 @@ class FilterChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double horizontalPadding = screenWidth * 0.071; 
+    double horizontalPadding = screenWidth * 0.069; 
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -31,7 +31,8 @@ class FilterChips extends StatelessWidget {
         label,
         style: GoogleFonts.poppins(
           fontSize: 16,
-          color: isSelected ? Colors.white : const Color.fromARGB(255, 106, 106, 106),
+          fontWeight: FontWeight.w600,
+          color: isSelected ? Colors.white : const Color.fromARGB(255, 131, 130, 130),
         ),
       ),
     );

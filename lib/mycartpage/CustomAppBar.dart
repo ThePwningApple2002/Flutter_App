@@ -1,35 +1,35 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              child: Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: ImageIcon(
-                    AssetImage("assets/apps.png"),
-                    color: const Color.fromARGB(255, 218, 87, 61),
-                    size: 25,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ),
-          ],
+      elevation: 0,
+      title: Center(
+        child: Text(
+          'My Cart',
+          style: GoogleFonts.poppins(
+            fontSize: 28,
+            color: Colors.black,
+          ),
+        ),
+      ),
+      leading: Container(
+        margin: const EdgeInsets.only(left: 20.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
+        child: IconButton(
+          iconSize: 30.0,
+          icon: ImageIcon(
+            AssetImage("assets/arrow_back_ios.png"),
+            color: const Color.fromARGB(255, 218, 87, 61),
+          ),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       actions: [

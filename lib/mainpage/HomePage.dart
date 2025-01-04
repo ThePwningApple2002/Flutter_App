@@ -32,6 +32,7 @@ class FashionPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
+      backgroundColor: const Color.fromARGB(255, 255, 246, 246),
     );
   }
 }

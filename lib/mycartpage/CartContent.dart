@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import './models.dart';
 
-class CartContent extends StatelessWidget {
+class CartContent extends StatefulWidget {
+  @override
+  _CartContentState createState() => _CartContentState();
+}
+
+class _CartContentState extends State<CartContent> {
   final List<Map<String, dynamic>> products = [
     {
       'name': 'Jacket Jeans',
@@ -17,21 +22,19 @@ class CartContent extends StatelessWidget {
       'color': Colors.pink,
       'size': 'M',
     },
-    {
-      'name': 'Acrylic Sweater',
-      'price': 45.9,
-      'imageUrl': 'https://alyceparis.com/cdn/shop/files/7106_IVORY_02_1000x.jpg?v=1729785546',
-      'color': Colors.black,
-      'size': 'M',
-    },
-    {
-      'name': 'Acrylic Sweater',
-      'price': 45.9,
-      'imageUrl': 'https://alyceparis.com/cdn/shop/files/7106_IVORY_02_1000x.jpg?v=1729785546',
-      'color': Colors.black,
-      'size': 'M',
-    },
   ];
+
+  List<CartItem> get cartItems {
+    return products.map((product) {
+      return CartItem(
+        name: product['name'],
+        price: product['price'],
+        imageUrl: product['imageUrl'],
+        color: product['color'],
+        size: product['size'],
+      );
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,10 @@ class CartContent extends StatelessWidget {
               },
             ),
           ),
-          CartSummary(),
+          CartSummary(
+            cartItems: cartItems,
+            shippingCost: 0.0,
+          ),
           CheckoutButton(),
         ],
       ),

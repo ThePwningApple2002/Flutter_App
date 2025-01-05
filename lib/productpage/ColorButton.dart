@@ -16,7 +16,7 @@ class ColorButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(isSelected ? 4 : 0), // Space between circle and border
+        padding: EdgeInsets.all(isSelected ? 4 : 0), 
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: isSelected ? Border.all(color: color, width: 2) : null,

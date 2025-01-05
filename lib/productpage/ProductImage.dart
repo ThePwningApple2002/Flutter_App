@@ -13,7 +13,7 @@ class ProductImage extends StatelessWidget {
       child: Image.network(
         imageUrl,
         fit: BoxFit.cover,
-        alignment: Alignment.topCenter, // This will make the image align from the top
+        alignment: Alignment.topCenter, 
       ),
     );
   }

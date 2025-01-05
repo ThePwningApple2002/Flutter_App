@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:aplikacijica/productpage/models.dart';
 
 class FashionItem extends StatefulWidget {
   final String name;
@@ -21,8 +22,22 @@ class _FashionItemState extends State<FashionItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return GestureDetector(
+      // Add this
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductPage(
+              name: widget.name,
+              price: widget.price,
+              imageUrl: widget.imageUrl,
+            ),
+          ),
+        );
+      },
+      child: Container(
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
@@ -86,7 +101,7 @@ class _FashionItemState extends State<FashionItem> {
             ),
           ),
         ],
-      ),
+      )),
     );
   }
 }

@@ -1,1 +1,2 @@
-export './FavoritesPage.dart';
+export 'FavoritesPage.dart';
+export 'CustomAppBar.dart';

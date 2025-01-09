@@ -1,28 +1,21 @@
-import 'package:aplikacijica/mainpage/FashionItem.dart';
-import 'package:flutter/material.dart';
 import 'package:aplikacijica/mainpage/models.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../mainpage/FashionItem.dart';
+import 'models.dart';
 
 class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       
-      appBar: AppBar(
-        title: Text(
-          'Favorites',
-          style: GoogleFonts.poppins(
-            fontSize: 28,
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: CustomAppBarF(),
       body: Consumer2<FavoriteProvider, FashionItemProvoider>(
         builder: (context, favoriteProvider, fashionItemProvider, child) {
           final favoriteProducts = fashionItemProvider.products
-              .where((product) =>
-                  favoriteProvider.favoriteItems.contains(product['id']))
+              .where((product) => favoriteProvider.favoriteItems
+              .contains(product['id']))
               .toList();
 
           if (favoriteProducts.isEmpty) {

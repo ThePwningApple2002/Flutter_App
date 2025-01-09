@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:aplikacijica/productpage/models.dart';
+import 'package:aplikacijica/mainpage/models.dart';
 import './models.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CartContent extends StatefulWidget {
   @override
@@ -7,62 +11,80 @@ class CartContent extends StatefulWidget {
 }
 
 class _CartContentState extends State<CartContent> {
-  final List<Map<String, dynamic>> products = [
-    {
-      'name': 'Jacket Jeans',
-      'price': 37.9,
-      'imageUrl': 'https://imgs.search.brave.com/td0AYySkGujncuZ-pCPRQ4cI35BHZqGX83iTCAhhkcU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzk2Lzc0Lzgy/LzM2MF9GXzk2NzQ4/MjM0X0wxT3BRbEU4/TFFKbW1qR3BlUVp2/Y09WT2toeENQekNh/LmpwZw',
-      'color': Colors.blue,
-      'size': 'L',
-    },
-    {
-      'name': 'Acrylic Sweater',
-      'price': 35.9,
-      'imageUrl': 'https://alyceparis.com/cdn/shop/files/7106_IVORY_02_1000x.jpg?v=1729785546',
-      'color': Colors.pink,
-      'size': 'M',
-    },
-  ];
-
-  List<CartItem> get cartItems {
-    return products.map((product) {
-      return CartItem(
-        name: product['name'],
-        price: product['price'],
-        imageUrl: product['imageUrl'],
-        color: product['color'],
-        size: product['size'],
-      );
-    }).toList();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (BuildContext context, int index) {
-                return CartItem(
-                  name: products[index]['name'],
-                  price: products[index]['price'],
-                  imageUrl: products[index]['imageUrl'],
-                  color: products[index]['color'],
-                  size: products[index]['size'],
-                );
-              },
-            ),
+    return Consumer2<Cartitemsprovider, FashionItemProvoider>(
+      builder: (context, cartProvider, productProvider, child) {
+        final cartProducts = productProvider.products
+            .where((product) => cartProvider.cartItems.contains(product['id']))
+            .toList();
+
+        return Container(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              if (cartProducts.isEmpty) 
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 64,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          'Your cart is empty!',
+                          style: GoogleFonts.poppins(fontSize: 18),
+                        ),
+                        SizedBox(height: 8),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Continue Shopping'),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              else
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cartProducts.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final product = cartProducts[index];
+                      return CartItem(
+                        id: product['id'],
+                        name: product['name'],
+                        price: product['price'],
+                        imageUrl: product['imageUrl'],
+                        color: product['color'],
+                        size: product['size'],
+                      );
+                    },
+                  ),
+                ),
+              if (cartProducts.isNotEmpty) ...[
+                CartSummary(
+                  cartItems: cartProducts.map((product) => CartItem(
+                    id: product['id'],
+                    name: product['name'],
+                    price: product['price'],
+                    imageUrl: product['imageUrl'],
+                    color: product['color'],
+                    size: product['size'],
+                  )).toList(),
+                  shippingCost: 0.0,
+                ),
+                CheckoutButton(),
+              ],
+            ],
           ),
-          CartSummary(
-            cartItems: cartItems,
-            shippingCost: 0.0,
-          ),
-          CheckoutButton(),
-        ],
-      ),
+        );
+      },
     );
   }
 }

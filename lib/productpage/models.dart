@@ -7,3 +7,4 @@ export './ColorSelector.dart';
 export './SizeSelector.dart';
 export './SizeButton.dart';
 export './ProductHeader.dart';
+export './CartItemsProvider.dart';

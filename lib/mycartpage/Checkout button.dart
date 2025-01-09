@@ -1,7 +1,11 @@
+import 'package:aplikacijica/productpage/CartItemsProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import './models.dart';
 
 class CheckoutButton extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -9,7 +13,7 @@ class CheckoutButton extends StatelessWidget {
         Expanded(
           child: ElevatedButton(
             onPressed: () {
-              // Handle checkout action
+              
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 252, 111, 111),

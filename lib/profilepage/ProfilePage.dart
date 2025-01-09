@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aplikacijica/favorites/models.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -13,7 +14,33 @@ class ProfilePage extends StatelessWidget {
           },
         ),
       ),
-      body: Center(child: Text('Profile Page')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+            Container(
+              width: 200,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FavoritesPage(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.favorite),
+                label: Text('Favorites'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.red,
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

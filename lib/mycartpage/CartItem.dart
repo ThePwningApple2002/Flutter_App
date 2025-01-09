@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartItem extends StatelessWidget {
+  final String id;
   final String name;
   final double price;
   final String imageUrl;
@@ -9,6 +10,7 @@ class CartItem extends StatelessWidget {
   final String size;
 
   CartItem({
+    required this.id,
     required this.name,
     required this.price,
     required this.imageUrl,

@@ -5,3 +5,5 @@ export './CustomAppBar.dart';
 export './Title.dart';
 export './CustomBottomNavigationBar.dart';
 export './HomePage.dart';
+export './FavoriteProvider.dart';
+export './FashionItemProvoider.dart';

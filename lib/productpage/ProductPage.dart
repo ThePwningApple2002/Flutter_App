@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import './models.dart';
 
 class ProductPage extends StatefulWidget {
+  final String id;
   final String name;
   final double price;
   final String imageUrl;
 
   ProductPage({
+    required this.id,
     required this.name,
     required this.price,
     required this.imageUrl,
@@ -64,7 +66,7 @@ class _ProductPageState extends State<ProductPage> {
                     },
                   ),
                   SizedBox(height: 32),
-                  AddToCartButton(),
+                  AddToCartButton(productId: widget.id,),
                 ],
               ),
             ),

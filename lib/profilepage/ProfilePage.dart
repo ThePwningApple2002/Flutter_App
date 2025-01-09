@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:aplikacijica/favorites/models.dart';
+import 'package:aplikacijica/favoritespage/models.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 246, 246),
       appBar: AppBar(
-        title: Text('Profile'),
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Profile',
+          style: GoogleFonts.poppins(
+          fontSize: 28,
+          ),
+          ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -33,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                 icon: Icon(Icons.favorite),
                 label: Text('Favorites'),
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Colors.red,
+                  foregroundColor: Colors.white, backgroundColor: Color.fromARGB(255, 218, 87, 61),
                   padding: EdgeInsets.symmetric(vertical: 15),
                 ),
               ),

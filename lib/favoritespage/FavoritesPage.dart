@@ -43,7 +43,8 @@ class FavoritesPage extends StatelessWidget {
                   SizedBox(height: 8),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomePage()),(Route<dynamic> route) => false,);
                     },
                     child: Text('Browse Products'),
                   ),

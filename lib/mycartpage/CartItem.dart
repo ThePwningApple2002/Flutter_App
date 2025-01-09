@@ -1,5 +1,8 @@
+import 'package:aplikacijica/productpage/models.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:aplikacijica/mycartpage/models.dart';
 
 class CartItem extends StatelessWidget {
   final String id;
@@ -90,7 +93,7 @@ class CartItem extends StatelessWidget {
             ),
             iconSize: 32,
             onPressed: () {
-  
+              Provider.of<Cartitemsprovider>(context, listen: false).removeFromCart(id);
             },
           ),
         ],

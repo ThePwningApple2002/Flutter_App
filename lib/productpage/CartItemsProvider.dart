@@ -11,4 +11,9 @@ class Cartitemsprovider with ChangeNotifier{
     notifyListeners();
   }
 
+  void removeFromCart(String productId){
+    _cartItems.remove(productId);
+    notifyListeners();
+  }
+
 }

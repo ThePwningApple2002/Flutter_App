@@ -1,8 +1,5 @@
-import 'package:aplikacijica/productpage/CartItemsProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import './models.dart';
 
 class CheckoutButton extends StatelessWidget {
 
@@ -13,7 +10,6 @@ class CheckoutButton extends StatelessWidget {
         Expanded(
           child: ElevatedButton(
             onPressed: () {
-              
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 252, 111, 111),

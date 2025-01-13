@@ -1,5 +1,3 @@
-import 'package:aplikacijica/mainpage/models.dart';
-import 'package:aplikacijica/profilepage/FavoritesDugme.dart';
 import 'package:flutter/material.dart';
 import './models.dart';
 

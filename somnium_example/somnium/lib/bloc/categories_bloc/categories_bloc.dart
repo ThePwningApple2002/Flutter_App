@@ -10,31 +10,31 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   CategoryBloc({required this.repository})
       : super(const CategoriesLoadingState()) {
-    on<LoadCategoriesEvent>(onLoadCategories);
-    on<SelectCategoryEvent>(onSelectCategory);
-  }
+    on<LoadCategoriesEvent>((event, emit) async {
+      print('LoadCategoriesEvent received'); // Debug print
+      emit(const CategoriesLoadingState());
 
-  Future<void> onLoadCategories(
-    LoadCategoriesEvent event,
-    Emitter<CategoryState> emit,
-  ) async {
-    emit(const CategoriesLoadingState());
-    try {
-      final categories = await repository.getCategories();
-      emit(CategoriesLoadedState(categories));
-    } catch (e) {
-      emit(CategoriesErrorState(const [], e.toString()));
-    }
-  }
+      try {
+        print('Fetching categories'); // Debug print
+        final categories = await repository.getCategories();
+        print('Categories fetched: ${categories.length}'); // Debug print
+        emit(CategoriesLoadedState(categories));
+      } catch (e) {
+        print('Error loading categories: $e'); // Debug print
+        emit(CategoriesErrorState(const [], e.toString()));
+      }
+    });
 
-  void onSelectCategory(
-    SelectCategoryEvent event,
-    Emitter<CategoryState> emit,
-  ) {
-    selectedCategory = event.category;
-    if (state is CategoriesLoadedState) {
-      emit(CategoriesLoadedState((state as CategoriesLoadedState).categories,
-          selectedCategory: event.category));
-    }
+    on<SelectCategoryEvent>((event, emit) {
+      print(
+          'SelectCategoryEvent received for: ${event.category.title}'); // Debug print
+      selectedCategory = event.category;
+      if (state is CategoriesLoadedState) {
+        emit(CategoriesLoadedState(
+          (state as CategoriesLoadedState).categories,
+          selectedCategory: event.category,
+        ));
+      }
+    });
   }
 }

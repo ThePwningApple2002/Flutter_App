@@ -4,13 +4,12 @@ import 'package:somnium/view/widgets/widgets.dart';
 import 'package:somnium/bloc/categories_bloc/bloc.dart';
 import 'package:somnium/bloc/songs_bloc/bloc.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class MusicPage extends StatelessWidget {
+  const MusicPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
       backgroundColor: const Color(0xFF0D0338),
       appBar: BarApp(),
       body: Stack(

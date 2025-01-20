@@ -19,6 +19,7 @@ dependencies:
   http: ^1.2.2
   flutter_bloc: ^9.0.0
   flutter_svg: ^2.0.17
+  just_audio: ^0.9.43
  
 
 dev_dependencies:

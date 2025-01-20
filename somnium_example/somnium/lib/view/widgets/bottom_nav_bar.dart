@@ -1,32 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+  final int currentIndex;
+  
+  const BottomNavBar({
+    super.key,
+    this.currentIndex = 0,  // Set default value to 0
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 94,
       child: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              context.go('/home_page');
+              break;
+            case 1:
+              context.go('/music_page');
+              break;
+            case 2:
+              context.go('/sleep_page');
+              break;
+            case 3:
+              context.go('/insight_page');
+              break;
+            case 4:
+              context.go('/profile_page');
+              break;
+          }
+        },
         selectedFontSize: 10,
         unselectedFontSize: 10,
         selectedIconTheme: const IconThemeData(size: 30),
         unselectedIconTheme: const IconThemeData(size: 30),
         items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/house-24px.png"),
-                color: Colors.white,
-                size: 30,
-              ),
-              label: "Home"),
+            icon: ImageIcon(
+              AssetImage("assets/house-24px.png"),
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "Home"
+          ),
           BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/Group 8894.png"),
-                color: Colors.white,
-                size: 30,
-              ),
-              label: "Music"),
+            icon: ImageIcon(
+              AssetImage("assets/Group 8894.png"),
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "Music"
+          ),
           BottomNavigationBarItem(
             icon: SizedBox(
               height: 70,
@@ -51,7 +79,7 @@ class BottomNavBar extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        bottom: 3, // Adjust this value
+                        bottom: 3,
                         child: Text(
                           "Sleep Now",
                           style: TextStyle(color: Colors.white, fontSize: 11),
@@ -65,19 +93,21 @@ class BottomNavBar extends StatelessWidget {
             label: "",
           ),
           BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/Frame 967.png"),
-                color: Colors.white,
-                size: 30,
-              ),
-              label: "Insight"),
+            icon: ImageIcon(
+              AssetImage("assets/Frame 967.png"),
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "Insight"
+          ),
           BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("assets/Frame 967 (1).png"),
-                color: Colors.white,
-                size: 30,
-              ),
-              label: "Profile"),
+            icon: ImageIcon(
+              AssetImage("assets/Frame 967 (1).png"),
+              color: Colors.white,
+              size: 30,
+            ),
+            label: "Profile"
+          ),
         ],
         backgroundColor: const Color(0xFF0D0338),
         fixedColor: Colors.white,

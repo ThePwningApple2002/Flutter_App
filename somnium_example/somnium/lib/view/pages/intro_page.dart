@@ -9,7 +9,7 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          context.go('/main_page');
+          context.go('/home_page');
         },
         child: Stack(
           children: [

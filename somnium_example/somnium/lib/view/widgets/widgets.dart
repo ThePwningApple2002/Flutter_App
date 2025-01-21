@@ -13,3 +13,4 @@ export './section_header.dart';
 export './quick_action.dart';
 export './recommended_song_card.dart';
 export './quick_actions.dart';
+export './recommended_songs_section.dart';

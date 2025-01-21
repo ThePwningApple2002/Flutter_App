@@ -9,6 +9,15 @@ class SongsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (songs.isEmpty) {
+      return const Center(
+        child: Text(
+          'No songs available',
+          style: TextStyle(color: Colors.white),
+        ),
+      );
+    }
+
     return ListView(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
@@ -31,14 +40,19 @@ class SongsGrid extends StatelessWidget {
                   bottom: 12,
                   left: 0,
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: const BoxDecoration(
                       color: Colors.black54,
                     ),
                     child: Text(
                       '${songs[0].duration} min',
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                 ),
